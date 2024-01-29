@@ -84,3 +84,10 @@ const name = taskNameInput.value.trim();
 const description = taskDescriptionInput.value.trim();
 const date = new Date().toLocaleString();
 const completed = false;
+
+if (name === '' || description === '') {
+    const task = new Task(name, description, date, completed);
+    taskList.addTask(task);
+    taskForm.reset();
+    }
+    });
