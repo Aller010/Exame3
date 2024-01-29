@@ -21,3 +21,19 @@ class Task {
 
     set completed(completed) { this.#completed = completed; }
 }
+
+class TaskList {
+    #tasks = [];
+
+    addTask(task) {
+        this.#tasks.push(task);
+        this.saveTasks();
+    }
+
+    editTask(id, updatedTask) {
+        const taskIndex = this.#tasks.findIndex(task => task.id === id);
+        if (taskIndex !== -1) {
+            this.#tasks[taskIndex] = updatedTask;
+            this.saveTasks();
+        }
+    }
