@@ -67,3 +67,20 @@ class TaskList {
         this.#tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     }
 }
+
+const taskForm = document.getElementById('task-form');
+const taskNameInput = document.getElementById('task-name');
+const taskDescriptionInput = document.getElementById('task-description');
+const tasksList = document.getElementById('tasks-list');
+const sortSelect = document.getElementById('sort-select');
+const filterSelect = document.getElementById('filter-select');
+
+const taskList = new TaskList();
+taskList.loadTasks();
+
+taskForm.addEventListener('submit', event => {
+event.preventDefault();
+const name = taskNameInput.value.trim();
+const description = taskDescriptionInput.value.trim();
+const date = new Date().toLocaleString();
+const completed = false;
