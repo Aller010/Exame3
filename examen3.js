@@ -91,3 +91,48 @@ if (name === '' || description === '') {
     taskForm.reset();
     }
     });
+
+    function renderTasks(tasks) {
+        tasksList.innerHTML = ''; 
+        tasks.forEach(task => {
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('task');
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+        checkbox.addEventListener('change', () => {
+            task.completed = checkbox.checked;
+            taskList.editTask(task.id, task);
+        });
+        
+        const nameElement = document.createElement('h2');
+        nameElement.textContent = task.name;
+        nameElement.addEventListener('click', () => {
+            window.location.href = details.html?id=${task.id};
+        });
+        
+        const descriptionElement = document.createElement('p');
+        descriptionElement.textContent = task.description;
+        
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', () => {
+            taskList.deleteTask(task.id);
+            renderTasks(taskList.getTasks());
+        });
+        
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', () => {
+            window.location.href = edit.html?id=${task.id};
+        });
+        
+        taskElement.appendChild(checkbox);
+        taskElement.appendChild(nameElement);
+        taskElement.appendChild(descriptionElement);
+        taskElement.appendChild(deleteButton);
+        taskElement.appendChild(editButton);
+        tasksList.appendChild(taskElement);
+        });
+        }
