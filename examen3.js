@@ -136,3 +136,22 @@ if (name === '' || description === '') {
         tasksList.appendChild(taskElement);
         });
         }
+        
+        function filterTasks(filter) {
+            renderTasks(taskList.filterTasks(filter));
+            }
+            
+            function sortTasks(sortBy) {
+            taskList.sortTasks(sortBy);
+            renderTasks(taskList.getTasks());
+            }
+            
+            sortSelect.addEventListener('change', () => {
+            sortTasks(sortSelect.value);
+            });
+            
+            filterSelect.addEventListener('change', () => {
+            filterTasks(filterSelect.value);
+            });
+            
+            
