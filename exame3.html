@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+  <link rel="styleheet" href="exame3.css">
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+    <main id="tasks-list"></main>
+    <form id="task-form">
+        <input type="text" id="task-name" placeholder="Task name">
+        <input type="text" id="task-description" placeholder="Task description">
+        <button type="submit">Add task</button>
+    </form>
+    <footer>
+        <select id="sort-select">
+            <option value="none">Sort by</option>
+            <option value="name">Name</option>
+            <option value="date">Date</option>
+        </select> 
+        <select id="filter-select">
+            <option value="all">Filter by</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+        </select>
+    </footer>
+    <script src="examen3.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+form {
+    margin-bottom: 20px;
+}
+input, select, button {
+    margin: 10px;
+}
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 48%;
+}
+.task h2 {
+    cursor: pointer;
+}
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+select {
+    margin: 10px;
+
+}
