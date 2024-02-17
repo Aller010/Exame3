@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="exame3.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Description</h1>
+    </header>
+
+
+    <main>
+        <div id="name"></div>
+        <div id="description"></div>
+        <div id="date"></div>
+        <div id="status"></div>
+        <button id="back-button">Back to Main Page</button>
+    </main>
+
+
+    <script src="functional.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const taskId = urlParams.get('id');
+        const taskList = new TaskList();
+        taskList.loadTasks();
+        const task = taskList.getTasks().find(task => task.id === taskId);
+        if (task){
+            const description = document.getElementById('description');
+            const date = document.getElementById('date');
+            const status = document.getElementById('status');
+            const name = document.getElementById('name');
+            name.textContent = task.name;
+            description.textContent = task.description;
+            date.textContent = task.date;
+            status.textContent = task.completed ? 'Completed' : 'Uncompleted';
+            const backButton = document.getElementById('back-button');
+            backButton.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        } else {
+            console.error('Task not found!');
+        }
+
+
+    </script>
+</body>
+
+
+</html>
