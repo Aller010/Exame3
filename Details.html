@@ -45,6 +45,7 @@
             id.textContent = task.id;
             name.textContent = task.name;
             description.textContent = task.description;
+            //i fixed date and time and removed the comma//
             date.textContent = task.date.toLocaleString('en', {hour12: false}).replace(',', '');
             status.textContent = task.completed ? 'Completed' : 'Uncompleted';
             const backButton = document.getElementById('back-button');
