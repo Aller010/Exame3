@@ -34,6 +34,16 @@ function isValidDescription(description) {
     let number = /^[0-9]{1,16}$/;
     let split = description.split(/\s/);
 
+//I add if for fplits//
+    if (split.length > 1) {
+        for (let i = 0; i < split.length; i++) {
+            if (!english.test(split[i]) && !russian.test(split[i]) && !number.test(split[i])) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 function validateForm() {
