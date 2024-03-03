@@ -7,19 +7,28 @@ const taskDescriptionInput = document.getElementById('task-description');
 const tasksList = document.getElementById('tasks-list');
 const sortSelect = document.getElementById('sort-select');
 const filterSelect = document.getElementById('filter-select');
-
-//i fixed the regular expressions for ValidName//
+// i fixed the regular expressions for ValidName//
 function isValidName(name) {
     let english = /^[a-zA-Z]{1,16}$/;
     let russian = /^[а-яА-Я]{1,16}$/;
     let split = name.split(/\s/);
 
+//I add if for splits//
+    if (split.length > 1) {
+        for (let i = 0; i < split.length; i++) {
+            if (!english.test(split[i]) && !russian.test(split[i])) {
+                return false;
+            }
+        }
+    }
+
+    return split.length > 1;
 }
 
 function isValidDescription(description) {
     return /^(?!\s*)[EN]{1,16}/.test(description);
 }
-
+}
 
 function validateForm() {
     const name = taskNameInput.value;
