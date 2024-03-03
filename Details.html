@@ -55,8 +55,11 @@
         } else {
             console.error('Task not found!');
         }
-
-
+ //i add if for 404 page//
+        if (!task) {
+    console.error('Task not found!');
+    window.location.href = '404page.html';
+}
     </script>
 </body>
 
