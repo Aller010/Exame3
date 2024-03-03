@@ -8,6 +8,7 @@ const tasksList = document.getElementById('tasks-list');
 const sortSelect = document.getElementById('sort-select');
 const filterSelect = document.getElementById('filter-select');
 
+
 function isValid(value) {
     return /^(?!\s*)[ER]{2,16}\s[ER]{2,16}/.test(value);
 }
@@ -17,26 +18,10 @@ function isValidDescription(description) {
 }
 
 function validateForm() {
-    const name = taskNameInput.value;
-    const description = taskDescriptionInput.value;
-
-    if (name.length === 0 || description.length === 0) {
-        alert('Invalid input');
-        return false;
-    }
-    return true;
-}
-
-taskForm.addEventListener('submit', event => {
-    event.preventDefault();
-
-    if (!validateForm()) {
-        return;
-    }
 
     const name = taskNameInput.value.trim();
     const description = taskDescriptionInput.value.trim();
-    const date = new Date().toLocaleString();
+    const date = new Date();
     const completed = false;
 
     const task = new Task(name, description, date, completed);

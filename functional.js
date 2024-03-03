@@ -31,7 +31,7 @@ class Task {
             description: this.#description,
             date: this.#date,
             completed: this.#completed
-        };
+        }; 
     }
 }
 
