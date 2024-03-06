@@ -13,7 +13,6 @@ function isValidName(name) {
     let english = /^[a-zA-Z]{1,16}$/;
     let russian = /^[а-яА-Я]{1,16}$/;
     let split = name.split(/\s/);
-
     if (split.length > 1) {
         for (let i = 0; i < split.length; i++) {
             if (!english.test(split[i]) && !russian.test(split[i])) {

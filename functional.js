@@ -5,12 +5,12 @@ class Task {
     #date;
     #completed;
 
-    constructor(name, description, date, completed) {
+    constructor(name, description, date) {
         this.#id = crypto.randomUUID();
         this.#name = name;
         this.#description = description;
         this.#date = date;
-        this.#completed = completed;
+        this.#completed = false;
     }
 
     get id() { return this.#id; }
