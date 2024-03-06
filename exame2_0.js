@@ -9,13 +9,11 @@ const sortSelect = document.getElementById('sort-select');
 const filterSelect = document.getElementById('filter-select');
 
 
-//i fixed the regular expressions for ValidName
 function isValidName(name) {
     let english = /^[a-zA-Z]{1,16}$/;
     let russian = /^[а-яА-Я]{1,16}$/;
     let split = name.split(/\s/);
 
-//I add if for splits//
     if (split.length > 1) {
         for (let i = 0; i < split.length; i++) {
             if (!english.test(split[i]) && !russian.test(split[i])) {
@@ -27,14 +25,12 @@ function isValidName(name) {
     return split.length > 1;
 }
 
-//i fixed the regular expressions for ValidDescription//
 function isValidDescription(description) {
     let english = /^[a-zA-Z]{1,16}$/;
     let russian = /^[а-яА-Я]{1,16}$/;
     let number = /^[0-9]{1,16}$/;
     let split = description.split(/\s/);
 
-//I add if for fplits//
     if (split.length > 1) {
         for (let i = 0; i < split.length; i++) {
             if (!english.test(split[i]) && !russian.test(split[i]) && !number.test(split[i])) {

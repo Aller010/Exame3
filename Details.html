@@ -32,7 +32,12 @@
         const taskList = new TaskList();
         taskList.loadTasks();
         const task = taskList.getTasks().find(task => task.id === taskId);
-        //i add this log and task.Date//
+         // i add if for 404 page
+         if (!task) {
+    console.error('Task not found!');
+    window.location.href = '404page.html';
+}
+        // i add this log and task.Date
         console.log(task.date);
         task.date = new Date(task.date);
         if (task) {
@@ -46,6 +51,7 @@
             name.textContent = task.name;
             description.textContent = task.description;
             //i fixed date and time and removed the comma//
+            
             date.textContent = task.date.toLocaleString('en', {hour12: false}).replace(',', '');
             status.textContent = task.completed ? 'Completed' : 'Uncompleted';
             const backButton = document.getElementById('back-button');
@@ -55,11 +61,6 @@
         } else {
             console.error('Task not found!');
         }
- //i add if for 404 page//
-        if (!task) {
-    console.error('Task not found!');
-    window.location.href = '404page.html';
-}
     </script>
 </body>
 
